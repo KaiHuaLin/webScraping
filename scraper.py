@@ -1,6 +1,7 @@
 import requests
 import csv
 import tweepy
+import config
 
 from datetime import date
 from datetime import timedelta
@@ -9,10 +10,10 @@ from datetime import timedelta
 URL = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
 
 
-consumer_key = "TBJX0j4eA4v5esovpLy6k8HkS"
-consumer_secret = "OUNIJdjZOO6h0SAPmGMTOI00AfnJ41rBHyUiVZmALLuiwNiMMp"
-access_token = "1262245023388753920-JOLV0oyfoe4HkotzHk0pd4OFun07R4"
-access_token_secret = "u1UxmVj9eo8ukWk13bKvaoGgwWbXldtBHBwh8sBh0VIs0"
+consumer_key = config.consumer_key
+consumer_secret = config.consumer_secret
+access_token = config.access_token
+access_token_secret = config.access_token_secret
 
 
 
@@ -49,7 +50,7 @@ def readCSV():
 
 
 def tweetContent(cases, deaths):
-     tweetOut("Until yesterday, there are {0} cases and {1} deaths total in the U.S".format(cases, deaths))
+     tweetOut("Until yesterday, there are {0} cases and {1} deaths total in the U.S.".format(cases, deaths))
 
 
 def tweetOut(tweetContent):
