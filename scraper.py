@@ -56,7 +56,11 @@ def tweetContent(cases, deaths):
 def tweetOut(tweetContent):
     oauth = OAuth()
     api = tweepy.API(oauth)
-    api.update_status(tweetContent)
+
+    try:
+        api.update_status(tweetContent)
+    except Exception:
+        print("Duplicated tweet content, please try again tomorrow.")
 
 
 
